@@ -1,0 +1,53 @@
+<img src="/img/apple.png" alt="">
+    <h1>Guia de Perguntas!</h1>
+    <hr>
+    <h3>Lista de Perguntas</h3>
+
+    <p>Nome: <%= nome %></p>
+    <p>Linguagem: <%= lang %> </p>
+    <p>Empresa: <%= empresa %> </p>
+    <p>Inscritos no canal: <%= inscritos %> </p>
+
+    <% if(msg == true){ %>
+        <h3>Isso é uma msg de erro!</h3>
+   <%} else {%> 
+        <h3>Nenhum erro!</h3>
+    <%}%>
+
+    <% produtos.forEach(function(produto) { %>
+        <hr>
+        <h3><%= produto.nome %></h3>
+        <h4><%= produto.preco %></h4> 
+        <% }) %>
+        
+const express = require('express');
+const app = express();
+
+// Estou dizendo para o Express usar o EJS como View engine
+app.set('view engine','ejs')
+app.use(express.static('public')) // função para carregar arquivos estáticos
+
+app.get('/:nome/:lang', (req, res) => {
+    var nome = req.params.nome;
+    var lang = req.params.lang;
+    var produtos = [
+        {nome: "Doritos", preco: 3.14},
+        {nome: "Coca-cola", preco: 5},
+        {nome: "Leite", preco: 1.45},
+        {nome: "Carne", preco: 6},
+        {nome: "Nescal", preco: 6},
+    ]
+    var exibirMsg = false
+    res.render("index", {
+        nome: nome,
+        lang: lang,
+        empresa: "Guia do Programador",
+        inscritos: 8000,
+        msg: exibirMsg,
+        produtos: produtos
+    })
+});
+
+app.listen('8080', (req, res) => {
+    console.log("App rodando!")
+})

@@ -1,0 +1,52 @@
+git config --global user.name "RonoelLima" - usuário
+git config --global user.email "ronoelnascimento@gmail.com" - email
+git config --global core.editor code - editor
+
+git config user.name
+git config user.email
+git config --list
+
+mkdir git-course - comando para criar uma pasta pelo git
+cd git-course/ comando para entrar na pasta criada
+
+git init - comando para inicializar um repositório
+
+ls - la lista os arquivos presentes no repositório 
+
+cd .. - comando para voltar uma pasta no terminal
+
+git status - apresenta o status do repositório (branc(Master), se tem algum commit para ser enviado...)
+
+git add 'Nome do arquivo' - adiciona um arquivo específico ao repositório
+
+se o arquivo adicionado no comando 'git add'  for alterado antes do commit ele precisará ser adicionado novamente para ficar disponível para envio ao repositório.
+
+criando um primeiro commit - que cria uma versão de todos os arquivos do repostitório 
+
+git commit -m "Add Readme.md" - é uma boa prática adicionar uma mensagem no comentário falando o que você fez nesta nova versão.
+
+git log
+
+git log --decorate
+
+git log --author="nome do author do commit" lista todos os commits do author 
+
+git shortlog - mostra em ordem alfabética todos autores dos commits
+
+git log --graph
+
+git diff --mostra as modificações feitas no arquivo que está sendo enviado.
+
+git diff --name-only - mostra somente os arquivos modificados
+
+git checkout "nome do arquivo" ele retorna o arquivo para antes da edição.
+
+git reset HEAD - ele remove do stage o arquivo que foi commitado
+
+git commit -am "nome da mensagem do commit" este comando insere todos os arquivos commitados prontos para o envio
+
+git remote add origin url do repositório no github 
+
+git push -u orign master
+
+
